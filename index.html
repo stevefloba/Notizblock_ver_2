@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notizblock</title>
+
+    <script src="./script.js" defer></script>
+
+    <link rel="stylesheet" href="./styles/standard.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body onload="init()">
+    <h1>Notizblock</h1>
+
+    <!-- Eingabefelder für Notiz und Titel -->
+    <input id="note_title_input" type="text" placeholder="Titel">
+    <input id="note_input" type="text" placeholder="Notiz">
+    <button onclick="addNote()">Notiz speichern</button>
+
+    <!-- Anzeige der gespeicherten Notizen -->
+    <h2>Notizen</h2>
+    <div id="content"></div>
+
+    <!-- Anzeige des Papierkorbs mit Wiederherstellen-Funktion -->
+    <h2>Papierkorb</h2>
+    <div id="trash_content"></div>
+</body>
+
+</html>
