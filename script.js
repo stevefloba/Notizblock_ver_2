@@ -58,6 +58,8 @@ function addNote() {
         notesTitles.push(title);
         notes.push(note);
 
+        sortNotes(); // nach Titel sortieren
+
         renderNotes();
         saveToLocalStorage();
 
@@ -116,4 +118,19 @@ function loadFromLocalStorage() {
     if (loadedTitles) notesTitles = loadedTitles;
     if (loadedTrashNotes) trashNotes = loadedTrashNotes;
     if (loadedTrashTitles) trashNotesTitles = loadedTrashTitles;
+}
+
+
+function sortNotes() {
+    // Ein Array aus Objekten erzeugen, um Titel & Notiz zusammenzuhalten
+    let combined = notesTitles.map((title, i) => {
+        return { title: title, note: notes[i] };
+    });
+
+    // Alphabetisch nach Titel sortieren (case-insensitive)
+    combined.sort((a, b) => a.title.localeCompare(b.title, 'de', { sensitivity: 'base' }));
+
+    // Zurück in die Arrays schreiben
+    notesTitles = combined.map(item => item.title);
+    notes = combined.map(item => item.note);
 }
