@@ -48,13 +48,15 @@ function renderArchiveNotes() {
 function getNoteTemplate(indexNote) {
     return `
         <p>
-            + Titel: <strong>${notesTitles[indexNote]}</strong> → ${notes[indexNote]}
-            <button onclick="archiveNote(${indexNote})">
-                <img src="./assets/icons/archive.png" alt="Archivieren">
-            </button>
-            <button onclick="pushNoteToTrash(${indexNote})">
-                <img src="./assets/icons/trashcan.png" alt="Löschen">
-            </button>
+            <span><strong>${notesTitles[indexNote]}:</strong> ${notes[indexNote]}</span>
+            <div class="button-group">
+                <button onclick="archiveNote(${indexNote})">
+                    <img src="./assets/icons/archive.png" alt="Archivieren">
+                </button>
+                <button onclick="pushNoteToTrash(${indexNote})">
+                    <img src="./assets/icons/trashcan.png" alt="Löschen">
+                </button>
+            </div>
         </p>
     `;
 }
@@ -62,9 +64,15 @@ function getNoteTemplate(indexNote) {
 function getTrashNoteTemplate(indexTrashNote) {
     return `
         <p>
-            + Titel: <strong>${trashNotesTitles[indexTrashNote]}</strong> → ${trashNotes[indexTrashNote]}
-            <button onclick="restoreNote(${indexTrashNote})">🔄 Wiederherstellen</button>
-            <button onclick="deleteNote(${indexTrashNote})">❌ Löschen</button>
+            <span><strong>${trashNotesTitles[indexTrashNote]}:</strong> ${trashNotes[indexTrashNote]}</span>
+            <div class="button-group">
+                <button onclick="restoreNote(${indexTrashNote})">
+                    <img src="./assets/icons/restore.png" alt="Wiederherstellen">
+                </button>
+                <button onclick="deleteNote(${indexTrashNote})">
+                    <img src="./assets/icons/delete.png" alt="Löschen">
+                </button>
+            </div>
         </p>
     `;
 }
@@ -72,10 +80,18 @@ function getTrashNoteTemplate(indexTrashNote) {
 function getArchiveNoteTemplate(indexArchiveNote) {
     return `
         <p>
-            + Titel: <strong>${archiveNotesTitles[indexArchiveNote]}</strong> → ${archiveNotes[indexArchiveNote]}
-            <button onclick="restoreArchive(${indexArchiveNote})">🔄 Wiederherstellen</button>
-            <button onclick="archiveToTrash(${indexArchiveNote})">🗑️ Papierkorb</button>
-            <button onclick="deleteArchive(${indexArchiveNote})">❌ Löschen</button>
+            <span><strong>${archiveNotesTitles[indexArchiveNote]}:</strong> ${archiveNotes[indexArchiveNote]}</span>
+            <div class="button-group">
+                <button onclick="restoreArchive(${indexArchiveNote})">
+                    <img src="./assets/icons/restore.png" alt="Wiederherstellen">
+                </button>
+                <button onclick="archiveToTrash(${indexArchiveNote})">
+                    <img src="./assets/icons/trashcan.png" alt="Papierkorb">
+                </button>
+                <button onclick="deleteArchive(${indexArchiveNote})">
+                    <img src="./assets/icons/delete.png" alt="Löschen">
+                </button>
+            </div>
         </p>
     `;
 }
